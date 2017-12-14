@@ -15,7 +15,7 @@
  * Plugin Name:       TMSM Resaweb Integration
  * Plugin URI:        https://github.com/thermesmarins/tmsm-resawebintegration
  * Description:       Resaweb Shortcodes for prices
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Nicolas Mollet
  * Author URI:        https://github.com/nicomollet
  * Requires PHP:      5.6
@@ -85,7 +85,7 @@ add_shortcode( 'resaweb_accommodation3blocks', 'tmsm_resawebintegration_accommod
 
 
 function tmsm_resawebintegration_enqueue_scripts() {
-	wp_enqueue_script( 'tmsm_resawebintegration_js', plugin_dir_url( __FILE__ ) . 'js/tmsm-resawebintegration.js', array( 'jquery' ), null, true );
+	wp_enqueue_script( 'tmsm_resawebintegration_js', plugin_dir_url( __FILE__ ) . 'js/tmsm-resawebintegration.js', array( 'jquery' ), '1.0.1', true );
 }
 
 add_action( 'wp_enqueue_scripts', 'tmsm_resawebintegration_enqueue_scripts' );
