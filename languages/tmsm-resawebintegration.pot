@@ -1,0 +1,29 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TMSM Availpro\n"
+"POT-Creation-Date: 2018-08-01 16:15+0200\n"
+"PO-Revision-Date: 2014-10-24 21:08+0100\n"
+"Last-Translator: Nicolas Mollet <nico.mollet@gmail.com>\n"
+"Language-Team: Nicolas Mollet <nico.mollet@gmail.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.8\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_x:1,2c;esc_attr__;esc_attr_e;"
+"esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: languages\n"
+"X-Poedit-SearchPath-1: .\n"
+"X-Poedit-SearchPathExcluded-0: vendor\n"
+
+#: tmsm-resawebintegration.php:52 tmsm-resawebintegration.php:106
+msgctxt "price"
+msgid "From"
+msgstr ""
+
+#: tmsm-resawebintegration.php:56
+msgid "instead of"
+msgstr ""

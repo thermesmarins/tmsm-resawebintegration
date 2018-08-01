@@ -7,7 +7,6 @@
     package_id = $(this).data('packageid');
     trip_id = $(this).data('tripid');
     nights = $(this).data('nights');
-    lang = $(this).data('lang');
     $.ajax({
       url: 'https://reservation.thalassotherapie.com/api/v1/price-search',
       method: 'get',
@@ -17,13 +16,26 @@
         package_id: [package_id],
         trip_id: trip_id,
         duration: nights,
-        lang: lang
       },
       success: function (data) {
 
         $.each(data, function (i, item) {
-          $('.resaweb-price[data-hotelid="' + item.place.codename + '"][data-packageid="' + item.package_main.package_id + '"][data-nights="' + item.nights_nb + '"]').html((lang=='en'?'€':'')+item.price_perperson_discounted+(lang!='en'?'&nbsp;€':'')).attr(
-            'data-packageslug', item.package_main.slug).attr('data-resawebdone', 'ok');
+          var shortcode = $('.resaweb-price[data-hotelid="' + item.place.codename + '"][data-packageid="' + item.package_main.package_id + '"][data-nights="' + item.nights_nb + '"]');
+
+          var PriceWithCurrencyFrom = Number(item.price_perperson_discounted).toLocaleString(tmsm_resawebintegration_params.locale, {style: "currency", currency: tmsm_resawebintegration_params.options.currency, minimumFractionDigits: 0, maximumFractionDigits: 2});
+          var PriceWithCurrencyInstead = Number(item.price_perperson_regular).toLocaleString(tmsm_resawebintegration_params.locale, {style: "currency", currency: tmsm_resawebintegration_params.options.currency, minimumFractionDigits: 0, maximumFractionDigits: 2});
+
+          $('.pricevalue', shortcode).html(PriceWithCurrencyFrom);
+
+          if(PriceWithCurrencyInstead !== PriceWithCurrencyFrom) {
+            $('.insteadvalue', shortcode).html(PriceWithCurrencyInstead);
+          }
+          else{
+            $('.instead', shortcode).remove();
+          }
+
+
+          shortcode.attr( 'data-packageslug', item.package_main.slug).attr('data-resawebdone', 'ok');
         });
 
       },

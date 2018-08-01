@@ -1,3 +1,9 @@
+### 1.0.2: August 1st, 2018
+* New attributes for shortcode resaweb_price: from, instead
+* New html generated for price
+* New internationalization POT file
+* Lang/Locale is now contextual to website and not a parameter of the shortcodes
+
 ### 1.0.1: December 14th, 2017
 * Apply version number to JS file
 * Plugin information, require PHP version
