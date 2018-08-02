@@ -22,6 +22,13 @@
  */
 
 /**
+ * Currently plugin version.
+ * Start at version 1.0.0 and use SemVer - https://semver.org
+ * Rename this for your plugin and update it as you release new versions.
+ */
+define( 'TMSM_RESAWEBINTEGRATION_VERSION', '1.0.2' );
+
+/**
  * Shortcode for [resaweb-price]
  *
  * @param      $atts
@@ -102,7 +109,7 @@ add_shortcode( 'resaweb_accommodation3blocks', 'tmsm_resawebintegration_accommod
  * Enqueue Javascript
  */
 function tmsm_resawebintegration_enqueue_scripts() {
-	wp_enqueue_script( 'tmsm_resawebintegration', plugin_dir_url( __FILE__ ) . 'js/tmsm-resawebintegration.js', array( 'jquery' ), null, true );
+	wp_enqueue_script( 'tmsm_resawebintegration', plugin_dir_url( __FILE__ ) . 'js/tmsm-resawebintegration.js', array( 'jquery' ), TMSM_RESAWEBINTEGRATION_VERSION, true );
 
 	// Params
 	$params = [
