@@ -1,3 +1,7 @@
+### 1.0.3: August 2nd, 2018
+* Prices hidden by default
+* Add constant for version
+
 ### 1.0.2: August 1st, 2018
 * New attributes for shortcode resaweb_price: from, instead
 * New html generated for price
