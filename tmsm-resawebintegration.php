@@ -9,7 +9,7 @@
  * Plugin Name:       TMSM Resaweb Integration
  * Plugin URI:        https://github.com/thermesmarins/tmsm-resawebintegration
  * Description:       Resaweb Shortcodes for prices
- * Version:           1.0.3
+ * Version:           1.0.4
  * Author:            Nicolas Mollet
  * Author URI:        https://github.com/nicomollet
  * Requires PHP:      5.6
@@ -26,7 +26,7 @@
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'TMSM_RESAWEBINTEGRATION_VERSION', '1.0.3' );
+define( 'TMSM_RESAWEBINTEGRATION_VERSION', '1.0.4' );
 
 /**
  * Shortcode for [resaweb-price]
@@ -43,16 +43,21 @@ function tmsm_resawebintegration_price( $atts, $content = null ) {
 		'nights'     => '',
 		'instead'     => 0,
 		'from'     => 0,
+		'fallback'     => 0,
 	), $atts );
 
-	$price = '<span style="display:none" class="resaweb-price" data-hotelid="' . esc_attr( $atts['hotel_id'] ) . '" data-packageid="' . esc_attr( $atts['package_id'] ). '" data-nights="' . esc_attr( $atts['nights'] ) . '">';
+	$price = '<span class="resaweb-price" data-hotelid="' . esc_attr( $atts['hotel_id'] ) . '" data-packageid="' . esc_attr( $atts['package_id'] ). '" data-nights="' . esc_attr( $atts['nights'] ) . '" data-fallback="' . esc_attr( $atts['fallback'] ) . '">';
+
+	if($atts['fallback']){
+		$price .= '<span class="fallback">'.esc_attr__( 'Check availability', 'tmsm-resawebintegration' ).'</span>&nbsp;';
+	}
 
 	if($atts['from']){
-		$price .= '<span class="from">'._x('From', 'price', 'tmsm-resawebintegration').'</span>&nbsp;';
+		$price .= '<span class="from" style="display:none">'._x('From', 'price', 'tmsm-resawebintegration').'</span>&nbsp;';
 	}
-	$price .= '<span class="pricevalue">?</span>';
+	$price .= '<span class="pricevalue" style="display:none">?</span>';
 	if($atts['instead']){
-		$price .= '<span class="instead">&nbsp;'.__('instead of','tmsm-resawebintegration').'&nbsp;<span class="insteadvalue">?</span></span>';
+		$price .= '<span class="instead" style="display:none">&nbsp;'.__('instead of','tmsm-resawebintegration').'&nbsp;<span class="insteadvalue">?</span></span>';
 	}
 	$price .= '</span>';
 
@@ -117,6 +122,7 @@ function tmsm_resawebintegration_enqueue_scripts() {
 		'locale'   => function_exists('pll_current_language') ? pll_current_language() : substr(get_locale(),0, 2),
 		'i18n'     => [
 			'fromprice'          => _x( 'From', 'price', 'tmsm-resawebintegration' ),
+			'fallback'          => esc_attr__( 'Check availability', 'tmsm-resawebintegration' ),
 		],
 		'options'  => [
 			'currency' => 'EUR',

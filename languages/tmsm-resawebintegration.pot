@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMSM Availpro\n"
-"POT-Creation-Date: 2018-08-01 16:15+0200\n"
+"POT-Creation-Date: 2018-08-02 11:27+0200\n"
 "PO-Revision-Date: 2014-10-24 21:08+0100\n"
 "Last-Translator: Nicolas Mollet <nico.mollet@gmail.com>\n"
 "Language-Team: Nicolas Mollet <nico.mollet@gmail.com>\n"
@@ -19,11 +19,15 @@ msgstr ""
 "X-Poedit-SearchPath-1: .\n"
 "X-Poedit-SearchPathExcluded-0: vendor\n"
 
-#: tmsm-resawebintegration.php:52 tmsm-resawebintegration.php:106
+#: tmsm-resawebintegration.php:52 tmsm-resawebintegration.php:125
+msgid "Check availability"
+msgstr ""
+
+#: tmsm-resawebintegration.php:56 tmsm-resawebintegration.php:124
 msgctxt "price"
 msgid "From"
 msgstr ""
 
-#: tmsm-resawebintegration.php:56
+#: tmsm-resawebintegration.php:60
 msgid "instead of"
 msgstr ""

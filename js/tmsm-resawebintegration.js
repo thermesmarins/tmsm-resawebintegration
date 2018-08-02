@@ -34,7 +34,8 @@
             $('.instead', shortcode).remove();
           }
           if(PriceWithCurrencyFrom){
-            shortcode.show();
+            $('*', shortcode).show();
+            $('.fallback', shortcode).hide();
           }
 
           shortcode.attr( 'data-packageslug', item.package_main.slug).attr('data-resawebdone', 'ok');

@@ -1,3 +1,6 @@
+### 1.0.4: August 2nd, 2018
+* Add fallback option to prices
+
 ### 1.0.3: August 2nd, 2018
 * Prices hidden by default
 * Add constant for version
