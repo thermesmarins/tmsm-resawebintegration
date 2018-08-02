@@ -33,7 +33,9 @@
           else{
             $('.instead', shortcode).remove();
           }
-
+          if(PriceWithCurrencyFrom){
+            shortcode.show();
+          }
 
           shortcode.attr( 'data-packageslug', item.package_main.slug).attr('data-resawebdone', 'ok');
         });

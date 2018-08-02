@@ -45,7 +45,7 @@ function tmsm_resawebintegration_price( $atts, $content = null ) {
 		'from'     => 0,
 	), $atts );
 
-	$price = '<span class="resaweb-price" data-hotelid="' . esc_attr( $atts['hotel_id'] ) . '" data-packageid="' . esc_attr( $atts['package_id'] ). '" data-nights="' . esc_attr( $atts['nights'] ) . '">';
+	$price = '<span style="display:none" class="resaweb-price" data-hotelid="' . esc_attr( $atts['hotel_id'] ) . '" data-packageid="' . esc_attr( $atts['package_id'] ). '" data-nights="' . esc_attr( $atts['nights'] ) . '">';
 
 	if($atts['from']){
 		$price .= '<span class="from">'._x('From', 'price', 'tmsm-resawebintegration').'</span>&nbsp;';
