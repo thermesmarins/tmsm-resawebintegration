@@ -1,7 +1,5 @@
 ;(function ($) {
-
-  //console.log('resaweb-load');
-
+  con
   $('.resaweb-load').each(function (e) {
     hotel_id = $(this).data('hotelid');
     package_id = $(this).data('packageid');
@@ -15,7 +13,7 @@
         hotel_id: hotel_id,
         package_id: [package_id],
         trip_id: trip_id,
-        duration: nights,
+        duration: nights
       },
       success: function (data) {
 
@@ -43,7 +41,6 @@
 
       },
       error: function (data, textStatus, errorThrown) {
-        //console.log('error2');
       }
     });
   });
