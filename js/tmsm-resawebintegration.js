@@ -1,5 +1,5 @@
 ;(function ($) {
-  con
+
   $('.resaweb-load').each(function (e) {
     hotel_id = $(this).data('hotelid');
     package_id = $(this).data('packageid');
