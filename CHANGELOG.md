@@ -1,3 +1,6 @@
+### 1.0.5: September 1st, 2018
+* New price setting to get best price of a package (see readme for examples)
+
 ### 1.0.4: August 2nd, 2018
 * Add fallback option to prices
 

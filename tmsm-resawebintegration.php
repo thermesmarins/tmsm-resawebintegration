@@ -9,7 +9,7 @@
  * Plugin Name:       TMSM Resaweb Integration
  * Plugin URI:        https://github.com/thermesmarins/tmsm-resawebintegration
  * Description:       Resaweb Shortcodes for prices
- * Version:           1.0.4
+ * Version:           1.0.5
  * Author:            Nicolas Mollet
  * Author URI:        https://github.com/nicomollet
  * Requires PHP:      5.6
@@ -26,7 +26,7 @@
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'TMSM_RESAWEBINTEGRATION_VERSION', '1.0.4' );
+define( 'TMSM_RESAWEBINTEGRATION_VERSION', '1.0.5' );
 
 /**
  * Shortcode for [resaweb-price]

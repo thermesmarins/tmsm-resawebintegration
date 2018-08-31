@@ -1,5 +1,24 @@
 ;(function ($) {
 
+  assignPrice = function(PriceWithCurrencyFrom, PriceWithCurrencyInstead, shortcode, item){
+    $('.pricevalue', shortcode).html(PriceWithCurrencyFrom);
+
+    if (PriceWithCurrencyInstead !== PriceWithCurrencyFrom) {
+      $('.insteadvalue', shortcode).html(PriceWithCurrencyInstead);
+    }
+    else {
+      $('.instead', shortcode).remove();
+    }
+    if (PriceWithCurrencyFrom) {
+      $('*', shortcode).show();
+      $('.fallback', shortcode).hide();
+    }
+
+    shortcode.attr('data-packageslug', item.package_main.slug).attr('data-resawebdone', 'ok').attr('data-pricevalue', item.price_perperson_discounted).attr('data-insteadvalue',
+      item.price_perperson_regular);
+  };
+
+
   $('.resaweb-load').each(function (e) {
     hotel_id = $(this).data('hotelid');
     package_id = $(this).data('packageid');
@@ -18,25 +37,45 @@
       success: function (data) {
 
         $.each(data, function (i, item) {
-          var shortcode = $('.resaweb-price[data-hotelid="' + item.place.codename + '"][data-packageid="' + item.package_main.package_id + '"][data-nights="' + item.nights_nb + '"]');
 
+          // Format price to i18n
           var PriceWithCurrencyFrom = Number(item.price_perperson_discounted).toLocaleString(tmsm_resawebintegration_params.locale, {style: "currency", currency: tmsm_resawebintegration_params.options.currency, minimumFractionDigits: 0, maximumFractionDigits: 2});
           var PriceWithCurrencyInstead = Number(item.price_perperson_regular).toLocaleString(tmsm_resawebintegration_params.locale, {style: "currency", currency: tmsm_resawebintegration_params.options.currency, minimumFractionDigits: 0, maximumFractionDigits: 2});
 
-          $('.pricevalue', shortcode).html(PriceWithCurrencyFrom);
+          // Assign prices hotel shortcodes
+          $('.resaweb-price[data-hotelid="' + item.place.codename + '"][data-packageid="' + item.package_main.package_id + '"][data-nights="' + item.nights_nb + '"]').each(function () {
+            var shortcode = $(this);
 
-          if(PriceWithCurrencyInstead !== PriceWithCurrencyFrom) {
-            $('.insteadvalue', shortcode).html(PriceWithCurrencyInstead);
-          }
-          else{
-            $('.instead', shortcode).remove();
-          }
-          if(PriceWithCurrencyFrom){
-            $('*', shortcode).show();
-            $('.fallback', shortcode).hide();
-          }
+            assignPrice(PriceWithCurrencyFrom, PriceWithCurrencyInstead, shortcode, item);
 
-          shortcode.attr( 'data-packageslug', item.package_main.slug).attr('data-resawebdone', 'ok');
+          });
+
+          // Assign prices BEST shortcodes
+          $('.resaweb-price[data-hotelid="BEST"][data-packageid="' + item.package_main.package_id + '"]').each(function () {
+            var shortcode = $(this);
+
+            // Exclude without accommodation
+            if(item.place.codename === 'TMS'){
+              return true;
+            }
+
+            // Exclude not matching number of nights
+            if(shortcode.attr('data-nights')){
+              if(shortcode.attr('data-nights') !== item.nights_nb){
+                return true;
+              }
+            }
+
+            // Compare existing price
+            if(shortcode.attr('data-pricevalue') && item.price_perperson_discounted > shortcode.attr('data-pricevalue')){
+              return true;
+            }
+
+            assignPrice(PriceWithCurrencyFrom, PriceWithCurrencyInstead, shortcode, item);
+
+          });
+
+
         });
 
       },
