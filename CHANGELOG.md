@@ -1,3 +1,5 @@
+* Change thalassotherapie.com to thalsso-saintmalo.com domain
+
 ### 1.0.5: September 1st, 2018
 * New price setting to get best price of a package (see readme for examples)
 
