@@ -1,3 +1,6 @@
+### 1.0.7: October 22nd, 2018
+* Fix URL because of CORS
+
 ### 1.0.6: October 17th, 2018
 * Change thalassotherapie.com to thalsso-saintmalo.com domain
 
