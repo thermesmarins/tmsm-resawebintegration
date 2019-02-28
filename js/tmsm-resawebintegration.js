@@ -67,7 +67,7 @@
             }
 
             // Compare existing price
-            if(shortcode.attr('data-pricevalue') && item.price_perperson_discounted > shortcode.attr('data-pricevalue')){
+            if(shortcode.attr('data-pricevalue') && parseInt(item.price_perperson_discounted) > parseInt(shortcode.attr('data-pricevalue'))){
               return true;
             }
 

@@ -1,3 +1,5 @@
+* Fix - Compare prices (get only inferior)
+
 ### 1.0.7: October 22nd, 2018
 * Fix URL because of CORS
 
