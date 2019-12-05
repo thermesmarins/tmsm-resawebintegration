@@ -1,3 +1,4 @@
+### 1.0.8: December 5th, 2019
 * Fix - Compare prices (get only inferior)
 
 ### 1.0.7: October 22nd, 2018
