@@ -1,3 +1,5 @@
+* Suffix parameter for price shortcode
+
 ### 1.0.8: December 5th, 2019
 * Fix - Compare prices (get only inferior)
 
@@ -5,7 +7,7 @@
 * Fix URL because of CORS
 
 ### 1.0.6: October 17th, 2018
-* Change thalassotherapie.com to thalsso-saintmalo.com domain
+* Change thalassotherapie.com to thalasso-saintmalo.com domain
 
 ### 1.0.5: September 1st, 2018
 * New price setting to get best price of a package (see readme for examples)

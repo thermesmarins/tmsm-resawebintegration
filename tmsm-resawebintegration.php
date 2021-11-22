@@ -41,9 +41,10 @@ function tmsm_resawebintegration_price( $atts, $content = null ) {
 		'hotel_id'   => '',
 		'package_id' => '',
 		'nights'     => '',
-		'instead'     => 0,
-		'from'     => 0,
-		'fallback'     => 0,
+		'instead'    => 0,
+		'from'       => 0,
+		'fallback'   => 0,
+		'suffix'     => '',
 	), $atts );
 
 	$price = '<span class="resaweb-price" data-hotelid="' . esc_attr( $atts['hotel_id'] ) . '" data-packageid="' . esc_attr( $atts['package_id'] ). '" data-nights="' . esc_attr( $atts['nights'] ) . '" data-fallback="' . esc_attr( $atts['fallback'] ) . '">';
@@ -55,10 +56,17 @@ function tmsm_resawebintegration_price( $atts, $content = null ) {
 	if($atts['from']){
 		$price .= '<span class="from" style="display:none">'._x('From', 'price', 'tmsm-resawebintegration').'</span>&nbsp;';
 	}
+
 	$price .= '<span class="pricevalue" style="display:none">?</span>';
+
 	if($atts['instead']){
 		$price .= '<span class="instead" style="display:none">&nbsp;'.__('instead of','tmsm-resawebintegration').'&nbsp;<span class="insteadvalue">?</span></span>';
 	}
+
+	if($atts['suffix']){
+		$price .= '<span class="suffix" style="display:none">&nbsp;'.esc_html( $atts['suffix'] ).'</span>';
+	}
+
 	$price .= '</span>';
 
 	return $price;

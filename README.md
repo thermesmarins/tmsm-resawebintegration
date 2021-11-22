@@ -22,6 +22,8 @@ Features
         * nights
         * from
         * instead
+        * fallback
+        * suffix
     * Example 1: [resaweb_price hotel_id="GHT" package_id="1" nights="6"]
     * Example 2: [resaweb_price hotel_id="BEST" package_id="1" nights="6"] for best price with accommodation
     * Example 3: [resaweb_price hotel_id="BEST" package_id="1"] for best price with accommodation indifferent of duration
