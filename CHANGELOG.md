@@ -1,4 +1,6 @@
-### 1.1.0: November 23rd, 2021 
+* Double pipe || to line break in suffix
+
+### 1.1.0: November 23rd, 2021
 * Fix URL
 
 ### 1.0.9: November 22nd, 2021

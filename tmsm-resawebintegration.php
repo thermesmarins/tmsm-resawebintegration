@@ -47,30 +47,34 @@ function tmsm_resawebintegration_price( $atts, $content = null ) {
 		'suffix'     => '',
 	), $atts );
 
-	$price = '<span class="resaweb-price" data-hotelid="' . esc_attr( $atts['hotel_id'] ) . '" data-packageid="' . esc_attr( $atts['package_id'] ). '" data-nights="' . esc_attr( $atts['nights'] ) . '" data-fallback="' . esc_attr( $atts['fallback'] ) . '">';
+	$price = '<span class="resaweb-price" data-hotelid="' . esc_attr( $atts['hotel_id'] ) . '" data-packageid="' . esc_attr( $atts['package_id'] )
+	         . '" data-nights="' . esc_attr( $atts['nights'] ) . '" data-fallback="' . esc_attr( $atts['fallback'] ) . '">';
 
-	if($atts['fallback']){
-		$price .= '<span class="fallback">'.esc_attr__( 'Check availability', 'tmsm-resawebintegration' ).'</span>&nbsp;';
+	if ( $atts['fallback'] ) {
+		$price .= '<span class="fallback">' . esc_attr__( 'Check availability', 'tmsm-resawebintegration' ) . '</span>&nbsp;';
 	}
 
-	if($atts['from']){
-		$price .= '<span class="from" style="display:none">'._x('From', 'price', 'tmsm-resawebintegration').'</span>&nbsp;';
+	if ( $atts['from'] ) {
+		$price .= '<span class="from" style="display:none">' . _x( 'From', 'price', 'tmsm-resawebintegration' ) . '</span>&nbsp;';
 	}
 
 	$price .= '<span class="pricevalue" style="display:none">?</span>';
 
-	if($atts['instead']){
-		$price .= '<span class="instead" style="display:none">&nbsp;'.__('instead of','tmsm-resawebintegration').'&nbsp;<span class="insteadvalue">?</span></span>';
+	if ( $atts['instead'] ) {
+		$price .= '<span class="instead" style="display:none">&nbsp;' . __( 'instead of', 'tmsm-resawebintegration' )
+		          . '&nbsp;<span class="insteadvalue">?</span></span>';
 	}
 
-	if($atts['suffix']){
-		$price .= '<span class="suffix" style="display:none">&nbsp;'.esc_html( $atts['suffix'] ).'</span>';
+	if ( $atts['suffix'] ) {
+		$atts['suffix'] = str_replace('||', '<br>', $atts['suffix']);
+		$price .= '<span class="suffix" style="display:none"> ' . wp_kses( $atts['suffix'], wp_kses_allowed_html( 'post' ) ) . '</span>';
 	}
 
 	$price .= '</span>';
 
 	return $price;
 }
+
 add_shortcode( 'resaweb_price', 'tmsm_resawebintegration_price' );
 
 /**
