@@ -1,3 +1,4 @@
+### 1.0.9: November 22th, 2019
 * Suffix parameter for price shortcode
 
 ### 1.0.8: December 5th, 2019
