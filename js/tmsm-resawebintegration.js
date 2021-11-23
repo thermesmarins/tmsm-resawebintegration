@@ -25,8 +25,7 @@
     trip_id = $(this).data('tripid');
     nights = $(this).data('nights');
     $.ajax({
-      //url: 'https://reservation.thalasso-saintmalo.com/fr/api/v1/price-search',
-      url: 'http://resaweb.lndo.site/fr/api/v1/price-search',
+      url: 'https://reservation.thalasso-saintmalo.com/fr/api/v1/price-search',
       method: 'get',
       dataType: 'json',
       data: {
