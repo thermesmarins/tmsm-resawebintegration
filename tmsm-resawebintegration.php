@@ -44,10 +44,11 @@ function tmsm_resawebintegration_price( $atts, $content = null ) {
 		'instead'    => 0,
 		'from'       => 0,
 		'fallback'   => 0,
+		'nblocations'   => '',
 		'suffix'     => '',
 	), $atts );
 
-	$price = '<span class="resaweb-price" data-hotelid="' . esc_attr( $atts['hotel_id'] ) . '" data-packageid="' . esc_attr( $atts['package_id'] )
+	$price = '<span class="resaweb-price" data-nblocations="' . esc_attr( $atts['nblocations'] ) . '" data-hotelid="' . esc_attr( $atts['hotel_id'] ) . '" data-packageid="' . esc_attr( $atts['package_id'] )
 	         . '" data-nights="' . esc_attr( $atts['nights'] ) . '" data-fallback="' . esc_attr( $atts['fallback'] ) . '">';
 
 	if ( $atts['fallback'] ) {

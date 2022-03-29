@@ -1,3 +1,5 @@
+* New package price attribute: nblocations
+
 ### 1.1.1: November 23rd, 2021
 * Double pipe || to line break in suffix
 
